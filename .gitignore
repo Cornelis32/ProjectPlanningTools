@@ -1,5 +1,52 @@
+# Backend stuff
+
+## Csharp webapi gitignore stuff
 server/bin/
 server/obj/
-client/node_modules/
-client/package.json
-client/package-lock.json
+
+
+# Client stuff
+
+## Angular client version
+### Note: AI generated. May be incorrect, check if anything doesn't work from pulling it clean
+### Do please follow all provided install steps correctly though
+
+### Ze folders
+client/web-planning-tools-angular-frontend/node_modules/
+client/web-planning-tools-angular-frontend/dist/
+client/web-planning-tools-angular-frontend/out-tsc/
+client/web-planning-tools-angular-frontend/public/
+
+client/web-planning-tools-angular-frontend/.angular/
+client/web-planning-tools-angular-frontend/.cache/
+client/web-planning-tools-angular-frontend/.cache-loader/
+client/web-planning-tools-angular-frontend/.tmp/
+# not enabled in the setup, but you never know
+client/web-planning-tools-angular-frontend/.sass-cache/ 
+client/web-planning-tools-angular-frontend/coverage/
+
+client/web-planning-tools-angular-frontend/npm-debug.log*
+client/web-planning-tools-angular-frontend/yarn-error.log*
+client/web-planning-tools-angular-frontend/*.log
+client/web-planning-tools-angular-frontend/.tgz*
+client/web-planning-tools-angular-frontend/.env
+client/web-planning-tools-angular-frontend/.env.local
+client/web-planning-tools-angular-frontend/.env.*.local
+client/web-planning-tools-angular-frontend/tsconfig.tsbuildinfo
+client/web-planning-tools-angular-frontend/.secret
+client/web-planning-tools-angular-frontend/secrets.json
+client/web-planning-tools-angular-frontend/.publish*
+
+# some stuff editors might leave behind
+.vscode/
+.idea/
+# Don't now this one
+*.swp 
+
+# temp files
+*~
+
+# some non-linux things
+Thumbs.db
+.DS_Store
+__MACOSX/
