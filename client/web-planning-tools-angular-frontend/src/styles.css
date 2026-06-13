@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+p {
+    color: cyan;
+    display: block; /* to make it only where the text is, not entire line */
+}
+
+.tag {
+    display: inline-block;
+    background-color: mediumpurple;
+}
