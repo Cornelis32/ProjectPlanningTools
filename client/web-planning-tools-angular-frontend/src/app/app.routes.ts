@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 // components
 // note: lot of relative imports
-import { DashboardComponent } from './dashboard.component';
+import { TaskboardComponent } from './taskboard/taskboard.component';
 import { Training } from './traningstuff/traning';
 import { Home } from './traningstuff/home';
 
@@ -13,7 +13,7 @@ export const routes: Routes = [
     {
         path: '',
         title: 'Ze home page',
-        component: DashboardComponent,
+        component: TaskboardComponent,
     },
     {
         path: 'training',
