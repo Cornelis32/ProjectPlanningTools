@@ -1,52 +1,18 @@
 import { Component, input } from '@angular/core';
+import { NgOptimizedImage } from "@angular/common";
+import { RouterLink, RouterOutlet } from "@angular/router";
+
 import { CounterComponent } from './counterComponent';
+import { TextComponent } from './textComponent';
 
 // TODO: Get these components and classes their own files
 // TODO: Go futher with the turtorial: https://angular.dev/tutorials/learn-angular/11-optimizing-images
 
-export class User {
-    id: number;
-    username: string;
-    constructor(id: number, username: string) {
-        this.id = id
-        this.username = username
-    }
-}
-@Component({
-    selector: 'app-user',
-    template: 'Welcome {{ user()?.username }}',
-})
-export class UserComponent {
-    user = input<User>();
-}
-
-@Component({
-    selector: 'app-text',
-    template: '<p><span class="tag"><ng-content/></span></p>',
-})
-export class TextComponent{ }
-
 @Component({ // Main app component
+    imports: [TextComponent, CounterComponent, NgOptimizedImage, RouterOutlet, RouterLink],
     selector: 'app-root',
     template: `
         <div [contentEditable]="isEditable"></div>
-        @if (loggedIn) {
-            <app-text>
-                    <app-user [user]=users[0]>
-                    </app-user>
-            </app-text>
-            @defer {
-                @for (user of users.slice(1); track user.id;) {
-                    <app-text> Other user {{ user.username }} exists </app-text>
-                } 
-            } @placeholder {
-                <app-text> Some other people you might want to meet, will appear here </app-text>
-            } @loading (minimum 2s) {
-                <app-text> Fetching your future friends... </app-text>
-            }
-        } @else {
-            <app-text> You are not supposed to be here </app-text>
-        }
         <button 
             (click)="greet()" 
             (mouseover)="showOnHoverMessage()" 
@@ -58,30 +24,36 @@ export class TextComponent{ }
             <app-text> {{ hello }} </app-text>
         }
         <app-counter (incrementEvent)="setNum($event)"></app-counter>
-        @defer (on viewport) {
-        <app-text> The number is: {{ myNum }} </app-text>
+        @defer  {
+            <!--app-text [attr.key]="'main'"> The number is: {{ myNum }} </app-text-->
+            <p> myNum </p>
         } @placeholder {
             <app-text> a number will appear here </app-text>
         } @loading (minimum 5s) {
             <app-text> Have some patience, dear user. The number will appear here soon... </app-text>
         }
+        <ul>
+            <li>
+                Normal image: <img [ngSrc]="logoUrl" [alt]="logoAlt" width="32" height="32" priority/>
+            </li>
+        </ul>
+
+        <nav>
+            <a routerLink="/">Home</a>
+            |
+            <a routerLink="/user">Users</a>
+        </nav>
+
+        <router-outlet></router-outlet>
     `,
-    imports: [UserComponent, TextComponent, CounterComponent],
 })
 export class App {
+    logoUrl: string = "/favicon.ico"
+    logoAlt: string = "Angular icon"
+
     myNum: number = 0
     message: string = ''; // empty, is onhover message
     isEditable: boolean = false
-    loggedIn: boolean = true
-    users: Array<User> = [
-        new User(0, "John Doe"),
-        new User(1, "Johanna Doe"),
-        new User(2, "Amy Doe"),
-        new User(3, "Rachel Doe"),
-        new User(4, "Sarah Doe"),
-        new User(5, "Job Doe"),
-        new User(6, "Piet Doe"),
-    ]
 
     hellos: string[] = []
 
