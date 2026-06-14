@@ -15,14 +15,16 @@ import { UserGreeterComponent } from './userGreeterComponent';
   selector: 'app-root',
   template: `
     <div [contentEditable]="isEditable"></div>
-    <button
-      (click)="greet()"
-      (mouseover)="showOnHoverMessage()"
-      (mouseout)="hideOnDishoverMessage()"
-    >
-      Click me!
-    </button>
-    <app-text>{{ message }}</app-text>
+    <app-text>
+        <button
+          (click)="greet()"
+          (mouseover)="showOnHoverMessage()"
+          (mouseout)="hideOnDishoverMessage()"
+        >
+          Click me!
+        </button>
+        {{ message }}
+    </app-text>
     @for (hello of hellos; track hello) {
       <app-text> {{ hello }} </app-text>
     }

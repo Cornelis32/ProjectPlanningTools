@@ -12,7 +12,7 @@ import { MyGlobals } from './globals';
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <topbar></topbar>
-    <div [style.margin-top.%]="topOffset">
+    <div [style.margin-top.vh]="topOffset">
     <sidebar></sidebar>
     <div [style.margin-left.%]="mainContentOffset">
         <router-outlet></router-outlet>
@@ -24,5 +24,5 @@ import { MyGlobals } from './globals';
 })
 export class App {
     mainContentOffset: number = MyGlobals.sideBarWidthPercentage + 1;
-    topOffset: number = 0.5;
+    topOffset: number = MyGlobals.topbarHeight;
 }
