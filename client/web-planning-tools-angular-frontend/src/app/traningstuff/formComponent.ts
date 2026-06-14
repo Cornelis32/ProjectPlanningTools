@@ -8,7 +8,9 @@ import { FormsModule } from '@angular/forms';
     template: `
     <label for="id">
         {{ title }}
-        <input id="id" type="text" [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" />
+        <section>
+            <input id="id" type="text" [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" />
+        </section>
     </label>
     `,
     imports: [FormsModule],
