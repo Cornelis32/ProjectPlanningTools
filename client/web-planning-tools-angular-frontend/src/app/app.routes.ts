@@ -10,12 +10,12 @@ import { UserGreeterComponent } from './userGreeterComponent';
 
 export const routes: Routes = [
     {
-        path: '/',
+        path: '',
         title: 'Ze home page',
         component: Home,
     },
     {
-        path: '/user',
+        path: 'user',
         title: 'Hi user',
         component: UserGreeterComponent,
     }

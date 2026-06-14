@@ -25,8 +25,7 @@ import { TextComponent } from './textComponent';
         }
         <app-counter (incrementEvent)="setNum($event)"></app-counter>
         @defer  {
-            <!--app-text [attr.key]="'main'"> The number is: {{ myNum }} </app-text-->
-            <p> myNum </p>
+            <app-text> The number is: {{ myNum }} </app-text>
         } @placeholder {
             <app-text> a number will appear here </app-text>
         } @loading (minimum 5s) {
@@ -39,9 +38,9 @@ import { TextComponent } from './textComponent';
         </ul>
 
         <nav>
-            <a routerLink="/">Home</a>
+            <a routerLink="">Home</a>
             |
-            <a routerLink="/user">Users</a>
+            <a routerLink="user/">Users</a>
         </nav>
 
         <router-outlet></router-outlet>
