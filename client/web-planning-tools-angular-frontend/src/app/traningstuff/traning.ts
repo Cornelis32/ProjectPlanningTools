@@ -1,14 +1,10 @@
 import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
 
 import { CounterComponent } from './counterComponent';
 import { TextComponent } from './textComponent';
 import { Home } from './home';
 import { UserGreeterComponent } from './userGreeterComponent';
-
-// TODO: Get these components and classes their own files
-// TODO: Go futher with the turtorial: https://angular.dev/tutorials/learn-angular/11-optimizing-images
 
 @Component({
   // Main app component
@@ -55,8 +51,6 @@ import { UserGreeterComponent } from './userGreeterComponent';
     TextComponent,
     CounterComponent,
     NgOptimizedImage,
-    RouterOutlet,
-    RouterLink,
     Home,
     UserGreeterComponent,
   ],
